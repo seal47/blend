@@ -144,7 +144,12 @@ def _try_blend_via_user_script(
         return None
 
 
-@app.post("/api/blend")
+@app.post("/")
+
+@app.get("/")
+def health():
+    return {"status": "ok"}
+    
 async def blend_endpoint(files: List[UploadFile] = File(...)) -> Response:
     if not files or len(files) < MIN_FILES or len(files) > MAX_FILES:
         raise HTTPException(
