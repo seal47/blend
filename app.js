@@ -9,7 +9,7 @@
   const MAX_FILES = 15; // keep 15 max
   const MAX_MB = 15;
   const ACCEPTED = ["image/png", "image/jpeg", "image/webp"];
-  const API_URL = "/api/blend";
+  const API_URL = "/api/server";
 
   const qs = (sel) => document.querySelector(sel);
 
