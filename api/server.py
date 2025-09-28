@@ -19,7 +19,7 @@ from PIL import Image
 # ASGI app that Vercel runs as a Serverless Function
 app = FastAPI(title="Image Blender API", version="1.0.0")
 
-# Limits and validation (note: Vercel body size is limited; see notes below)
+# Limits and validation (keep small for Vercel)
 MIN_FILES = 2
 MAX_FILES = 15
 MAX_FILE_MB = 4
@@ -60,7 +60,9 @@ async def _save_and_read(upload: UploadFile, dest: Path) -> bytes:
         return f_in.read()
 
 
-def _ensure_pillow_image(obj: Union[Image.Image, str, bytes, io.BytesIO]) -> Image.Image:
+def _ensure_pillow_image(
+    obj: Union[Image.Image, str, bytes, io.BytesIO]
+) -> Image.Image:
     if isinstance(obj, Image.Image):
         return obj
     if isinstance(obj, (bytes, bytearray)):
@@ -89,7 +91,6 @@ def _try_blend_via_user_script(
     file_paths: List[Path],
     temp_dir: Path,
 ) -> Optional[Image.Image]:
-    # Ensure this folder (api/) is importable
     here = Path(__file__).parent
     if str(here) not in sys.path:
         sys.path.insert(0, str(here))
@@ -119,7 +120,7 @@ def _try_blend_via_user_script(
         except Exception:
             pass
 
-    # 3) CLI fallback (works only if your blend.py supports it)
+    # 3) CLI fallback (only if your blend.py supports it)
     try:
         out_path = temp_dir / "out.png"
         cmd = [
@@ -131,7 +132,7 @@ def _try_blend_via_user_script(
         ]
         # TODO(blend-cli): adjust flags if your CLI differs.
         proc = subprocess.run(
-            cmd, captureOutput=True, text=True, cwd=str(here)
+            cmd, capture_output=True, text=True, cwd=str(here)
         )
         if proc.returncode != 0:
             raise RuntimeError(
@@ -144,12 +145,12 @@ def _try_blend_via_user_script(
         return None
 
 
-@app.post("/")
-
 @app.get("/")
 def health():
-return {"status": "ok"}
-    
+    return {"status": "ok"}
+
+
+@app.post("/")
 async def blend_endpoint(files: List[UploadFile] = File(...)) -> Response:
     if not files or len(files) < MIN_FILES or len(files) > MAX_FILES:
         raise HTTPException(
