@@ -1,4 +1,4 @@
-// vercel.json
+
 {
   "functions": {
     "api/server.py": {
@@ -6,8 +6,5 @@
       "memory": 1024,
       "maxDuration": 60
     }
-  },
-  "routes": [
-    { "src": "^/api/blend$", "dest": "api/server.py" }
-  ]
+  }
 }
