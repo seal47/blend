@@ -1,0 +1,141 @@
+<!-- web/index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blendcoin — Blend your own images</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="badge" aria-label="Blendcoin">Blendcoin</div>
+      <nav class="socials" aria-label="Social">
+        <a
+          id="twitter-icon"
+          class="icon-link"
+          href="https://twitter.com/your_handle"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+          title="Twitter"
+        >
+          <!-- Twitter bird -->
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              fill="currentColor"
+              d="M20.56 7.58c.01.18.01.36.01.54 0 5.51-4.2 11.86-11.86 11.86-2.36 0-4.55-.69-6.4-1.88.33.04.66.06 1 .06 1.96 0 3.76-.67 5.19-1.81a4.19 4.19 0 0 1-3.91-2.9c.26.05.53.08.81.08.39 0 .77-.05 1.12-.15a4.18 4.18 0 0 1-3.35-4.1v-.05c.56.31 1.2.5 1.88.52a4.17 4.17 0 0 1-1.86-3.47c0-.77.21-1.49.57-2.11a11.86 11.86 0 0 0 8.61 4.36c-.06-.31-.09-.63-.09-.96a4.18 4.18 0 0 1 7.23-2.86 8.36 8.36 0 0 0 2.65-1.01 4.2 4.2 0 0 1-1.84 2.31 8.35 8.35 0 0 0 2.4-.66 8.98 8.98 0 0 1-2.09 2.17z"
+            />
+          </svg>
+        </a>
+        <a
+          id="dex-icon"
+          class="icon-link"
+          href="https://dexscreener.com/solana/your_pair_or_token"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="DexScreener"
+          title="DexScreener"
+        >
+          <!-- Minimal hawk mark -->
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 64 64"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              fill="currentColor"
+              d="M32 6c12.8 0 23 10.2 23 23v4c0 8.5 2.4 16.1 6.1 22.1l-9.8-6.9-7.3 10.1-8-11.5-8 11.5-7.3-10.1-9.8 6.9C6.6 49.1 9 41.5 9 33v-4C9 16.2 19.2 6 32 6zm0 9c-4.8 0-9.1 1.8-12.4 4.8l5.2 6.4c-2.2-.2-4.2-1-5.8-2.4-1.6-1.4-2.4-3.1-2.4-5.1 0-1.5.5-2.9 1.3-4.1C14 18 12 22.2 12 27v6c5.6-2.7 10.8-5.4 16.2-8.3-.1.8-.2 1.6-.2 2.4 0 1.9.3 3.7.9 5.4-5.6 3.2-9.7 5.6-9.7 5.6 5.9 3.2 9.6 7.6 12.8 18.1 3.2-10.5 6.9-14.9 12.8-18.1 0 0-4.1-2.4-9.7-5.6.6-1.7.9-3.5.9-5.4 0-.8-.1-1.6-.2-2.4 5.4 2.9 10.6 5.6 16.2 8.3v-6c0-4.8-2-9-5.9-12.4.8 1.2 1.3 2.6 1.3 4.1 0 2-0.8 3.7-2.4 5.1-1.6 1.4-3.6 2.2-5.8 2.4l5.2-6.4C41.1 16.8 36.8 15 32 15zm0 10c4 0 7 3.8 7 10-3.3 2.1-5.9 5.6-7 9.7-1.1-4.1-3.7-7.6-7-9.7 0-6.2 3-10 7-10z"
+            />
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="hero-title">
+        <span class="corners" aria-hidden="true"></span>
+        Blend your own images
+      </h1>
+      <p class="hero-sub">
+        Drop your images or use the button below, max 15.
+      </p>
+    </section>
+
+    <!-- Uploader panel -->
+    <main class="container">
+      <section class="panel" aria-labelledby="uploader-title">
+        <h2 id="uploader-title" class="sr-only">Upload images</h2>
+
+        <div
+          id="drop-zone"
+          class="drop-zone"
+          tabindex="0"
+          role="button"
+          aria-label="Drop images here or press Enter to open file picker"
+        >
+          <div class="dz-content">
+            <p class="dz-title">Drop images here</p>
+            <p class="dz-subtitle">
+              or click the button to select multiple files
+            </p>
+            <p class="dz-hint">2–15 images • ≤15 MB each</p>
+          </div>
+          <input
+            id="file-input"
+            class="file-input"
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            multiple
+            aria-hidden="true"
+            tabindex="-1"
+          />
+        </div>
+
+        <div class="actions">
+          <button id="pick-btn" class="btn btn-accent">
+            Upload images
+          </button>
+          <button id="download-btn" class="btn" disabled>
+            Download image
+          </button>
+        </div>
+
+        <div id="status" class="status" aria-live="polite"></div>
+
+        <div id="preview-wrap" class="preview-wrap" hidden>
+          <img id="preview" alt="Blended preview" />
+        </div>
+      </section>
+    </main>
+
+    <!-- Single footer (token only) -->
+    <footer class="site-footer">
+      <button
+        id="footer-copy"
+        class="footer-text"
+        title="Click to copy"
+        aria-label="Copy token address"
+      >
+        9y2ujeNUtnZxwz9yFpMGMB4CkaVepHswFJ2dKnm2pump
+      </button>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
