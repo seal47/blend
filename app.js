@@ -7,7 +7,7 @@
 
   const MIN_FILES = 2;
   const MAX_FILES = 15; // keep 15 max
-  const MAX_MB = 15;
+  const MAX_MB = 4;
   const ACCEPTED = ["image/png", "image/jpeg", "image/webp"];
   const API_URL = "/api/server";
 

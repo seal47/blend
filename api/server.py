@@ -22,7 +22,7 @@ app = FastAPI(title="Image Blender API", version="1.0.0")
 # Limits and validation (note: Vercel body size is limited; see notes below)
 MIN_FILES = 2
 MAX_FILES = 15
-MAX_FILE_MB = 15
+MAX_FILE_MB = 4
 MAX_FILE_BYTES = MAX_FILE_MB * 1024 * 1024
 ACCEPTED_MEDIA_TYPES = {"image/png", "image/jpeg", "image/webp"}
 ACCEPTED_EXTS = {".png", ".jpg", ".jpeg", ".webp"}
@@ -148,7 +148,7 @@ def _try_blend_via_user_script(
 
 @app.get("/")
 def health():
-    return {"status": "ok"}
+return {"status": "ok"}
     
 async def blend_endpoint(files: List[UploadFile] = File(...)) -> Response:
     if not files or len(files) < MIN_FILES or len(files) > MAX_FILES:
