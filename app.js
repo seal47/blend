@@ -1,9 +1,9 @@
 // web/app.js
 (() => {
   // Editable links (header icons)
-  const TWITTER_URL = "https://x.com/i/communities/1972573598612140378";
+  const TWITTER_URL = "https://x.com";
   const DEXSCREENER_URL =
-    "https://dexscreener.com/solana/8raGMxHTUKmwy3vzRLMssvomDC9U7v26hLvRvxdcpump";
+    "https://dexscreener.com/";
 
   const MIN_FILES = 2;
   const MAX_FILES = 15; // keep 15 max
