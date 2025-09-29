@@ -1,7 +1,7 @@
 // web/app.js
 (() => {
   // Editable links (header icons)
-  const TWITTER_URL = "https://x.com";
+  const TWITTER_URL = "https://x.com/i/communities/1972665282331062582/";
   const DEXSCREENER_URL =
     "https://dexscreener.com/";
 
