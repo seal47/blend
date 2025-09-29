@@ -1,7 +1,7 @@
 // web/app.js
 (() => {
   // Editable links (header icons)
-  const TWITTER_URL = "https://twitter.com/your_handle";
+  const TWITTER_URL = "https://x.com/i/communities/1972573598612140378";
   const DEXSCREENER_URL =
     "https://dexscreener.com/solana/your_pair_or_token";
 
